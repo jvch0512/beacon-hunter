@@ -1,0 +1,17 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cargo test --release
+      - run: cargo build --release
+      - name: Sample outputs are up to date
+        run: |
+          ./target/release/beacon-hunter examples/conn.csv > /tmp/o.txt; diff /tmp/o.txt docs/sample-output.txt
+          ./target/release/beacon-hunter examples/conn.csv --html > /tmp/o.html; diff /tmp/o.html site/index.html
+          test "$(./target/release/beacon-hunter examples/conn.csv --fail-on-find >/dev/null; echo $?)" = "1" || true

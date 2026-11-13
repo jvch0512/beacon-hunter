@@ -1,0 +1,13 @@
+score src              dst:port               conns  every    jitter    span
+91    10.1.7.9         198.51.100.77:53         119   908s      4.6%   29.6h
+        - very regular interval: median 908s, deviation 4.6%
+        - near-constant request size (cv 0.04)
+        - persisted 30 hours
+        - small payloads (mean 90 bytes out)
+        - blends into port 53
+82    10.1.4.23        203.0.113.50:443        1000    60s     10.5%   16.6h
+        - regular interval with jitter: median 60s, deviation 11%
+        - near-constant request size (cv 0.03)
+        - persisted 17 hours
+        - small payloads (mean 314 bytes out)
+        - blends into port 443

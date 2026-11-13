@@ -1,0 +1,13 @@
+[package]
+name = "beacon-hunter"
+version = "1.0.0"
+edition = "2021"
+description = "Find C2 beaconing in connection logs: interval regularity, jitter-tolerant, explainable score, HTML report"
+license = "MIT"
+repository = "https://github.com/jvch0512/beacon-hunter"
+keywords = ["security", "c2", "beaconing", "threat-hunting", "zeek"]
+
+[dependencies]
+
+[profile.release]
+opt-level = 3
